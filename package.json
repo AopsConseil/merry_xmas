@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "print:december": "tsx scripts/printDecember.ts",
+    "generate:advent": "tsx scripts/generateAdvent.ts",
     "lint": "eslint"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
     "clsx": "^2.1.1",
     "next": "16.0.5",
     "react": "19.2.0",

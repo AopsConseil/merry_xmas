@@ -13,11 +13,21 @@ type JourPageParams = {
   day: string;
 };
 
-// Mapping optionnel pour prévoir de vraies photos
-// (tu pourras remplir ces chemins quand tu auras les fichiers dans /public)
 const participantPhotos: Partial<Record<string, string>> = {
-  // ivan: "/participants/ivan.jpg",
-  // vincent: "/participants/vincent.jpg",
+  //   ivan: "/people/anna.JPG",
+  anna: "/people/anna.jpg",
+  vincent: "/people/vincent.jpg",
+  nathalie: "/people/nathalie.png",
+  maxime: "/people/maxime.jpg",
+  jp: "/people/jp.jpg",
+  jc: "/people/jc.png",
+  fx: "/people/fx.webp",
+  josephine: "/people/josephine.jpg",
+  sylvain: "/people/sylvain.png",
+  sebastien: "/people/sebastien.png",
+  florence: "/people/florence.jpg",
+  charlotte: "/people/charlotte.jpg",
+  eliot: "/people/eliot.jpg",
 };
 
 const jokerIcons: Record<JokerType, string> = {
@@ -43,8 +53,9 @@ function ParticipantCell({ participantId }: { participantId: string }) {
           <Image
             src={photo}
             alt={name}
-            fill
-            className="object-cover"
+            width={32}
+            height={24}
+            className="object-fit"
             sizes="32px"
           />
         </div>
@@ -84,9 +95,9 @@ export default async function JourPage({
     );
   }
 
-  // En prod : const now = new Date();
+  const now = new Date();
   // Pour tester : figer un jour de décembre
-  const now = new Date(new Date().getFullYear(), 11, 3); // 3 décembre (test)
+  //   const now = new Date(new Date().getFullYear(), 11, 3); // 3 décembre (test)
   const year = now.getFullYear();
   const dateObj = new Date(year, 11, dayNumber); // 11 = décembre
   const dateKey = `${year}-12-${String(dayNumber).padStart(2, "0")}`;

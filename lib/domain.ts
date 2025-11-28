@@ -10,6 +10,7 @@ export type JokerType =
 export type Participant = {
   id: string;
   firstName: string;
+  email?: string;
 };
 
 export type DailyAssignment = {

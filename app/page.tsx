@@ -19,10 +19,9 @@ function getWeekdayForDecemberDay(day: number): string {
 
 export default function HomePage() {
   // Pour tester le déblocage : 3 décembre forcé
-  const now = new Date(new Date().getFullYear(), 11, 3);
-  // En prod tu pourras remettre :
-  // const now = new Date();
+  // const now = new Date(new Date().getFullYear(), 11, 3);
 
+  const now = new Date();
   const year = now.getFullYear();
   const isDecember = now.getMonth() === 11;
   const todayDate = now.getDate();
