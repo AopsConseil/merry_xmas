@@ -13,11 +13,7 @@ function getDateFromRequest(request: Request): Date {
   const overrideSecret = url.searchParams.get("secret");
 
   // En dev, si ?date=YYYY-MM-DD est passé → on l'utilise
-  if (
-    process.env.NODE_ENV !== "production" &&
-    dateParam &&
-    overrideSecret === process.env.CRON_OVERRIDE_SECRET
-  ) {
+  if (dateParam && overrideSecret === process.env.CRON_OVERRIDE_SECRET) {
     return new Date(dateParam + "T12:00:00");
   }
 
