@@ -27,7 +27,7 @@ export default function HomePage() {
   const todayDate = now.getDate();
 
   return (
-    <main className="relative min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex items-center justify-center px-4 py-10 overflow-hidden">
+    <main className="relative min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex items-start lg:items-center justify-center px-4 py-10 overflow-hidden">
       {/* Neige */}
       <Snow />
 
@@ -84,8 +84,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Labels jours de semaine */}
-            <div className="grid grid-cols-7 mb-2 text-[0.7rem] sm:text-xs font-medium text-slate-400 gap-2">
+            {/* Labels jours de semaine (desktop only) */}
+            <div className="hidden md:grid grid-cols-7 mb-2 text-[0.7rem] sm:text-xs font-medium text-slate-400 gap-2">
               {weekdayLabels.map((label) => (
                 <div key={label} className="text-center">
                   {label}
@@ -94,7 +94,7 @@ export default function HomePage() {
             </div>
 
             {/* Grille des jours */}
-            <div className="grid grid-cols-7 gap-2 sm:gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-2 sm:gap-3">
               {adventDays.map((day) => {
                 const weekday = getWeekdayForDecemberDay(day);
                 const isToday = isDecember && day === todayDate;
@@ -114,7 +114,7 @@ export default function HomePage() {
                     href={isUnlocked ? `/jour/${day}` : "#"}
                     aria-disabled={!isUnlocked}
                     className={[
-                      "relative aspect-square rounded-2xl border text-left p-1.5 sm:p-2 flex flex-col justify-between overflow-hidden group transition-transform duration-150",
+                      "relative rounded-2xl border text-left p-2 sm:p-2.5 flex flex-col justify-between overflow-hidden group transition-transform duration-150 min-h-[88px] sm:min-h-[104px]",
                       isUnlocked
                         ? isToday
                           ? "border-amber-400/80 bg-amber-500/15 shadow-lg shadow-amber-500/30 scale-[1.02] cursor-pointer"
@@ -142,7 +142,7 @@ export default function HomePage() {
                       <span className="text-xl sm:text-2xl font-semibold text-amber-100">
                         {day}
                       </span>
-                      <span className="text-amber-300 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-amber-300 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:inline">
                         Voir le détail →
                       </span>
                       <span className="mt-1 text-[0.7rem] sm:text-xs text-slate-400">
@@ -163,7 +163,9 @@ export default function HomePage() {
                             <span className="inline-block w-1.5 h-1.5 rounded-full bg-slate-500" />
                             Verrouillé
                           </span>
-                          <span className="text-slate-500">Patience…</span>
+                          <span className="text-slate-500 hidden sm:inline">
+                            Patience…
+                          </span>
                         </>
                       )}
                     </div>

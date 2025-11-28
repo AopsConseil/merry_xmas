@@ -110,16 +110,16 @@ export default async function JourPage({
     month: "long",
   });
 
-  // 🔹 On charge toutes les assignations depuis le stockage (KV + fallback génération)
+  // 🔹 On charge toutes les assignations depuis le stockage
   const assignmentsForDay: DailyAssignment[] = dailyAssignments.filter(
     (a) => a.date === dateKey
   );
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex items-center justify-center px-4 py-10">
+    <main className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex items-start md:items-center justify-center px-4 py-10">
       <div className="max-w-4xl w-full space-y-6">
         {/* Top bar */}
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-sm text-slate-300 hover:text-amber-300 transition-colors"
@@ -189,95 +189,181 @@ export default async function JourPage({
                 chacun.
               </p>
 
-              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-800/80">
-                <table className="min-w-full text-sm">
-                  <thead className="bg-slate-900/80 text-slate-300">
-                    <tr>
-                      <th className="px-4 py-2 text-left font-medium">
-                        Donneur
-                      </th>
-                      <th className="px-4 py-2 text-left font-medium">
-                        Receveur
-                      </th>
-                      <th className="px-4 py-2 text-left font-medium">
-                        Joker & message
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-800/80 bg-slate-950/40">
-                    {assignmentsForDay.map((a, idx) => {
-                      const joker = a.joker as JokerType | undefined;
-                      const jokerInfo = joker ? jokerStyles[joker] : undefined;
-                      const msg = buildDailyMessage(a, participants);
+              {/* 🟢 Version CARDS (mobile) */}
+              <div className="mt-4 space-y-3 md:hidden">
+                {assignmentsForDay.map((a, idx) => {
+                  const joker = a.joker as JokerType | undefined;
+                  const jokerInfo = joker ? jokerStyles[joker] : undefined;
+                  const msg = buildDailyMessage(a, participants);
 
-                      return (
-                        <tr
-                          key={`${a.giverId}-${a.receiverId}-${idx}`}
-                          className="align-top"
-                        >
-                          <td className="px-4 py-3 align-top">
-                            <ParticipantCell participantId={a.giverId} />
-                          </td>
-                          <td className="px-4 py-3 align-top">
-                            <ParticipantCell participantId={a.receiverId} />
-                          </td>
-                          <td className="px-4 py-3 align-top">
-                            <div className="flex flex-col gap-2">
-                              {/* Badge Joker */}
-                              {jokerInfo && joker ? (
-                                <div
-                                  className={[
-                                    "inline-flex items-start gap-2 rounded-2xl border px-3 py-2 text-xs sm:text-[0.8rem]",
-                                    jokerInfo.color,
-                                  ].join(" ")}
-                                >
-                                  <span className="text-base">
-                                    {jokerIcons[joker]}
-                                  </span>
-                                  <div className="flex flex-col gap-0.5">
-                                    <span className="font-semibold uppercase tracking-wide">
-                                      {jokerInfo.label}
-                                    </span>
-                                    <span className="text-[0.7rem] text-slate-100/90">
-                                      {jokerInfo.description}
-                                    </span>
-                                  </div>
-                                </div>
-                              ) : (
-                                <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-[0.7rem] text-slate-200">
-                                  🍫
-                                  <span>
-                                    Aucun joker (échange classique
-                                    aujourd&apos;hui)
-                                  </span>
-                                </span>
-                              )}
+                  return (
+                    <article
+                      key={`${a.giverId}-${a.receiverId}-${idx}`}
+                      className="rounded-2xl border border-slate-800 bg-slate-950/60 p-4 flex flex-col gap-3"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex-1">
+                          <p className="text-[0.65rem] uppercase tracking-wide text-slate-400">
+                            Donneur
+                          </p>
+                          <ParticipantCell participantId={a.giverId} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-[0.65rem] uppercase tracking-wide text-slate-400">
+                            Receveur
+                          </p>
+                          <ParticipantCell participantId={a.receiverId} />
+                        </div>
+                      </div>
 
-                              {/* Message personnalisé à côté de la ligne */}
-                              {msg && (
-                                <div className="rounded-xl bg-slate-900/80 border border-slate-700/70 px-3 py-2 text-[0.7rem] text-slate-200">
-                                  <p className="font-semibold text-amber-100/90">
-                                    {msg.title}
-                                  </p>
-                                  {msg.subtitle && (
-                                    <p className="mt-0.5 text-xs text-amber-200/90">
-                                      {msg.subtitle}
-                                    </p>
-                                  )}
-                                  {msg.details && (
-                                    <p className="mt-1 text-[0.7rem] text-slate-300">
-                                      {msg.details}
-                                    </p>
-                                  )}
-                                </div>
-                              )}
+                      <div className="flex flex-col gap-2">
+                        {/* Badge Joker */}
+                        {jokerInfo && joker ? (
+                          <div
+                            className={[
+                              "inline-flex items-start gap-2 rounded-2xl border px-3 py-2 text-[0.75rem]",
+                              jokerInfo.color,
+                            ].join(" ")}
+                          >
+                            <span className="text-base">
+                              {jokerIcons[joker]}
+                            </span>
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-semibold uppercase tracking-wide">
+                                {jokerInfo.label}
+                              </span>
+                              <span className="text-[0.7rem] text-slate-100/90">
+                                {jokerInfo.description}
+                              </span>
                             </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                          </div>
+                        ) : (
+                          <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-[0.7rem] text-slate-200">
+                            🍫
+                            <span>
+                              Aucun joker (échange classique aujourd&apos;hui)
+                            </span>
+                          </span>
+                        )}
+
+                        {/* Message personnalisé */}
+                        {msg && (
+                          <div className="rounded-xl bg-slate-900/80 border border-slate-700/70 px-3 py-2 text-[0.7rem] text-slate-200">
+                            <p className="font-semibold text-amber-100/90">
+                              {msg.title}
+                            </p>
+                            {msg.subtitle && (
+                              <p className="mt-0.5 text-xs text-amber-200/90">
+                                {msg.subtitle}
+                              </p>
+                            )}
+                            {msg.details && (
+                              <p className="mt-1 text-[0.7rem] text-slate-300">
+                                {msg.details}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+
+              {/* 🖥️ Version TABLE (desktop & tablettes larges) */}
+              <div className="mt-4 rounded-2xl border border-slate-800/80 hidden md:block">
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-xs sm:text-sm">
+                    <thead className="bg-slate-900/80 text-slate-300">
+                      <tr>
+                        <th className="px-3 py-2 sm:px-4 sm:py-2 text-left font-medium">
+                          Donneur
+                        </th>
+                        <th className="px-3 py-2 sm:px-4 sm:py-2 text-left font-medium">
+                          Receveur
+                        </th>
+                        <th className="px-3 py-2 sm:px-4 sm:py-2 text-left font-medium">
+                          Joker &amp; message
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/80 bg-slate-950/40">
+                      {assignmentsForDay.map((a, idx) => {
+                        const joker = a.joker as JokerType | undefined;
+                        const jokerInfo = joker
+                          ? jokerStyles[joker]
+                          : undefined;
+                        const msg = buildDailyMessage(a, participants);
+
+                        return (
+                          <tr
+                            key={`${a.giverId}-${a.receiverId}-${idx}`}
+                            className="align-top"
+                          >
+                            <td className="px-3 py-2 sm:px-4 sm:py-3 align-top">
+                              <ParticipantCell participantId={a.giverId} />
+                            </td>
+                            <td className="px-3 py-2 sm:px-4 sm:py-3 align-top">
+                              <ParticipantCell participantId={a.receiverId} />
+                            </td>
+                            <td className="px-3 py-2 sm:px-4 sm:py-3 align-top">
+                              <div className="flex flex-col gap-2">
+                                {/* Badge Joker */}
+                                {jokerInfo && joker ? (
+                                  <div
+                                    className={[
+                                      "inline-flex items-start gap-2 rounded-2xl border px-3 py-2 text-[0.7rem] sm:text-[0.8rem]",
+                                      jokerInfo.color,
+                                    ].join(" ")}
+                                  >
+                                    <span className="text-base">
+                                      {jokerIcons[joker]}
+                                    </span>
+                                    <div className="flex flex-col gap-0.5">
+                                      <span className="font-semibold uppercase tracking-wide">
+                                        {jokerInfo.label}
+                                      </span>
+                                      <span className="text-[0.7rem] text-slate-100/90">
+                                        {jokerInfo.description}
+                                      </span>
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-[0.7rem] text-slate-200">
+                                    🍫
+                                    <span>
+                                      Aucun joker (échange classique
+                                      aujourd&apos;hui)
+                                    </span>
+                                  </span>
+                                )}
+
+                                {/* Message personnalisé */}
+                                {msg && (
+                                  <div className="rounded-xl bg-slate-900/80 border border-slate-700/70 px-3 py-2 text-[0.7rem] text-slate-200">
+                                    <p className="font-semibold text-amber-100/90">
+                                      {msg.title}
+                                    </p>
+                                    {msg.subtitle && (
+                                      <p className="mt-0.5 text-xs text-amber-200/90">
+                                        {msg.subtitle}
+                                      </p>
+                                    )}
+                                    {msg.details && (
+                                      <p className="mt-1 text-[0.7rem] text-slate-300">
+                                        {msg.details}
+                                      </p>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </>
           )}
