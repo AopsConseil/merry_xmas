@@ -10,9 +10,14 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 function getDateFromRequest(request: Request): Date {
   const url = new URL(request.url);
   const dateParam = url.searchParams.get("date"); // ex: "2025-12-03"
+  const overrideSecret = url.searchParams.get("secret");
 
   // En dev, si ?date=YYYY-MM-DD est passé → on l'utilise
-  if (process.env.NODE_ENV !== "production" && dateParam) {
+  if (
+    process.env.NODE_ENV !== "production" &&
+    dateParam &&
+    overrideSecret === process.env.CRON_OVERRIDE_SECRET
+  ) {
     return new Date(dateParam + "T12:00:00");
   }
 

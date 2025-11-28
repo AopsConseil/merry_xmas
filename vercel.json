@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "/api/cron/daily-reminder",
+      "path": "api/cron/daily-reminder?date=2025-12-03&secret=yoyoman!!",
       "schedule": "0 8 * * 1-5"
     }
   ]
