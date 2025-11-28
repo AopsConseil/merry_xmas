@@ -14,7 +14,7 @@ type JourPageParams = {
 };
 
 const participantPhotos: Partial<Record<string, string>> = {
-  //   ivan: "/people/anna.JPG",
+  ivan: "/people/ivan.png",
   anna: "/people/anna.jpg",
   vincent: "/people/vincent.jpg",
   nathalie: "/people/nathalie.png",
