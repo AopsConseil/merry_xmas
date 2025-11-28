@@ -89,12 +89,12 @@ export async function GET(request: Request) {
     const dryRun = url.searchParams.get("dryRun") === "1";
 
     // Période de l'Avent uniquement : 1–24 décembre
-    // if (!(month === 11 && dayOfMonth >= 1 && dayOfMonth <= 24)) {
-    //   return NextResponse.json(
-    //     { status: "skipped", reason: "hors période d'Avent" },
-    //     { status: 200 }
-    //   );
-    // }
+    if (!(month === 11 && dayOfMonth >= 1 && dayOfMonth <= 24)) {
+      return NextResponse.json(
+        { status: "skipped", reason: "hors période d'Avent" },
+        { status: 200 }
+      );
+    }
 
     // Lundi–vendredi seulement
     if (weekDay === 0 || weekDay === 6) {
