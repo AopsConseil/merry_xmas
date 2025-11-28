@@ -6,31 +6,31 @@ import advent from "../advent.json";
 
 export const participants: Participant[] = [
   { id: "ivan", firstName: "Ivan", email: "ivan.lilla@aops.fr" },
-  //   { id: "vincent", firstName: "Vincent", email: "vincent.morot@aops.fr" },
-  //   { id: "nathalie", firstName: "Nathalie", email: "nathalie.sassier@aops.fr" },
-  //   { id: "josephine", firstName: "Joséphine", email: "josephine.coat@aops.fr" },
-  //   {
-  //     id: "jc",
-  //     firstName: "Jean-Christophe",
-  //     email: "jean-christophe.menguy@aops.fr",
-  //   },
-  //   { id: "jp", firstName: "Jean-Paul", email: "jean-paul.verret@aops.fr" },
-  //   {
-  //     id: "fx",
-  //     firstName: "François-Xavier",
-  //     email: "francois-xavier.idee@aops.fr",
-  //   },
-  //   { id: "maxime", firstName: "Maxime", email: "maxime.genet@aops.fr" },
-  //   {
-  //     id: "charlotte",
-  //     firstName: "Charlotte",
-  //     email: "charlotte.cotier@aops.fr",
-  //   },
-  //   { id: "anna", firstName: "Anna-Louisa", email: "anna-louisa.marin@aops.fr" },
-  //   { id: "florence", firstName: "Florence", email: "florence.cirou@aops.fr" },
-  //   { id: "sebastien", firstName: "Sébastien", email: "sebastien.nouet@aops.fr" },
-  //   { id: "eliot", firstName: "Eliot", email: "eliot.burgun@aops.fr" },
-  //   { id: "sylvain", firstName: "Sylvain", email: "sylvain.rousseau@aops.fr" },
+  { id: "vincent", firstName: "Vincent", email: "vincent.morot@aops.fr" },
+  { id: "nathalie", firstName: "Nathalie", email: "nathalie.sassier@aops.fr" },
+  { id: "josephine", firstName: "Joséphine", email: "josephine.coat@aops.fr" },
+  {
+    id: "jc",
+    firstName: "Jean-Christophe",
+    email: "jean-christophe.menguy@aops.fr",
+  },
+  { id: "jp", firstName: "Jean-Paul", email: "jean-paul.verret@aops.fr" },
+  {
+    id: "fx",
+    firstName: "François-Xavier",
+    email: "francois-xavier.idee@aops.fr",
+  },
+  { id: "maxime", firstName: "Maxime", email: "maxime.genet@aops.fr" },
+  {
+    id: "charlotte",
+    firstName: "Charlotte",
+    email: "charlotte.cotier@aops.fr",
+  },
+  { id: "anna", firstName: "Anna-Louisa", email: "anna-louisa.marin@aops.fr" },
+  { id: "florence", firstName: "Florence", email: "florence.cirou@aops.fr" },
+  { id: "sebastien", firstName: "Sébastien", email: "sebastien.nouet@aops.fr" },
+  { id: "eliot", firstName: "Eliot", email: "eliot.burgun@aops.fr" },
+  { id: "sylvain", firstName: "Sylvain", email: "sylvain.rousseau@aops.fr" },
 ];
 
 // // Seed fixe (tu peux le mettre en dur, ou venir d'une env var)
