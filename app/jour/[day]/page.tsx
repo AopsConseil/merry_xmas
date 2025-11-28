@@ -3,8 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/components/Common/Logo";
+
 import { participants, dailyAssignments } from "@/lib/data";
-import type { Participant, JokerType } from "@/lib/domain";
+import type { Participant, JokerType, DailyAssignment } from "@/lib/domain";
 import { buildCollectiveMessage, buildDailyMessage } from "@/lib/messages";
 import { jokerStyles } from "@/lib/types";
 
@@ -15,8 +16,8 @@ type JourPageParams = {
 // Mapping optionnel pour prévoir de vraies photos
 // (tu pourras remplir ces chemins quand tu auras les fichiers dans /public)
 const participantPhotos: Partial<Record<string, string>> = {
-  // ivan: "/photos/ivan.jpg",
-  // vincent: "/photos/vincent.jpg",
+  // ivan: "/participants/ivan.jpg",
+  // vincent: "/participants/vincent.jpg",
 };
 
 const jokerIcons: Record<JokerType, string> = {
@@ -83,10 +84,10 @@ export default async function JourPage({
     );
   }
 
-  // Pour tester en décembre :
-  // const now = new Date();
+  // En prod : const now = new Date();
+  // Pour tester : figer un jour de décembre
   const now = new Date(new Date().getFullYear(), 11, 3); // 3 décembre (test)
-  const year = now.getFullYear(); // même année que celle utilisée pour générer dailyAssignments
+  const year = now.getFullYear();
   const dateObj = new Date(year, 11, dayNumber); // 11 = décembre
   const dateKey = `${year}-12-${String(dayNumber).padStart(2, "0")}`;
   const isFuture = dateObj > now;
@@ -98,7 +99,10 @@ export default async function JourPage({
     month: "long",
   });
 
-  const assignmentsForDay = dailyAssignments.filter((a) => a.date === dateKey);
+  // 🔹 On charge toutes les assignations depuis le stockage (KV + fallback génération)
+  const assignmentsForDay: DailyAssignment[] = dailyAssignments.filter(
+    (a) => a.date === dateKey
+  );
 
   return (
     <main className="min-h-screen bg-linear-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 flex items-center justify-center px-4 py-10">
@@ -170,14 +174,10 @@ export default async function JourPage({
                 <span className="font-semibold text-amber-200">
                   donneurs & receveurs
                 </span>{" "}
-                pour ce jour, avec les Jokers et le{" "}
-                <span className="font-semibold text-amber-200">
-                  message du jour
-                </span>{" "}
-                pour chacun.
+                pour ce jour, avec le Joker et le message personnalisé pour
+                chacun.
               </p>
 
-              {/* Tableau donneurs / receveurs / jokers / message */}
               <div className="mt-4 overflow-hidden rounded-2xl border border-slate-800/80">
                 <table className="min-w-full text-sm">
                   <thead className="bg-slate-900/80 text-slate-300">
@@ -188,77 +188,79 @@ export default async function JourPage({
                       <th className="px-4 py-2 text-left font-medium">
                         Receveur
                       </th>
-                      <th className="px-4 py-2 text-left font-medium">Joker</th>
                       <th className="px-4 py-2 text-left font-medium">
-                        Message du jour
+                        Joker & message
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-800/80 bg-slate-950/40">
                     {assignmentsForDay.map((a, idx) => {
                       const joker = a.joker as JokerType | undefined;
-                      const jokerInfo = joker
-                        ? jokerStyles[joker as JokerType]
-                        : undefined;
-
+                      const jokerInfo = joker ? jokerStyles[joker] : undefined;
                       const msg = buildDailyMessage(a, participants);
 
                       return (
-                        <tr key={`${a.giverId}-${a.receiverId}-${idx}`}>
-                          <td className="px-4 py-2 align-top">
+                        <tr
+                          key={`${a.giverId}-${a.receiverId}-${idx}`}
+                          className="align-top"
+                        >
+                          <td className="px-4 py-3 align-top">
                             <ParticipantCell participantId={a.giverId} />
                           </td>
-                          <td className="px-4 py-2 align-top">
+                          <td className="px-4 py-3 align-top">
                             <ParticipantCell participantId={a.receiverId} />
                           </td>
-                          <td className="px-4 py-2 align-top">
-                            {jokerInfo && joker ? (
-                              <div
-                                className={[
-                                  "inline-flex whitespace-nowrap items-start gap-2 rounded-2xl border px-3 py-2 text-xs sm:text-[0.8rem]",
-                                  jokerInfo.color,
-                                ].join(" ")}
-                              >
-                                <span className="text-base">
-                                  {jokerIcons[joker]}
-                                </span>
-                                <div className="flex flex-col gap-0.5">
-                                  <span className="font-semibold uppercase tracking-wide">
-                                    {jokerInfo.label}
+                          <td className="px-4 py-3 align-top">
+                            <div className="flex flex-col gap-2">
+                              {/* Badge Joker */}
+                              {jokerInfo && joker ? (
+                                <div
+                                  className={[
+                                    "inline-flex items-start gap-2 rounded-2xl border px-3 py-2 text-xs sm:text-[0.8rem]",
+                                    jokerInfo.color,
+                                  ].join(" ")}
+                                >
+                                  <span className="text-base">
+                                    {jokerIcons[joker]}
                                   </span>
-                                  <span className="text-[0.7rem] text-slate-100/90">
-                                    {jokerInfo.description}
-                                  </span>
+                                  <div className="flex flex-col gap-0.5">
+                                    <span className="font-semibold uppercase tracking-wide">
+                                      {jokerInfo.label}
+                                    </span>
+                                    <span className="text-[0.7rem] text-slate-100/90">
+                                      {jokerInfo.description}
+                                    </span>
+                                  </div>
                                 </div>
-                              </div>
-                            ) : (
-                              <span className="text-xs text-slate-500">
-                                Aucun joker (échange classique)
-                              </span>
-                            )}
-                          </td>
-                          <td className="px-4 py-2 align-top">
-                            {msg ? (
-                              <div className="text-xs sm:text-[0.8rem] space-y-1">
-                                <p className="font-medium text-slate-50">
-                                  {msg.title}
-                                </p>
-                                {msg.subtitle && (
-                                  <p className="text-amber-200">
-                                    {msg.subtitle}
+                              ) : (
+                                <span className="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-[0.7rem] text-slate-200">
+                                  🍫
+                                  <span>
+                                    Aucun joker (échange classique
+                                    aujourd&apos;hui)
+                                  </span>
+                                </span>
+                              )}
+
+                              {/* Message personnalisé à côté de la ligne */}
+                              {msg && (
+                                <div className="rounded-xl bg-slate-900/80 border border-slate-700/70 px-3 py-2 text-[0.7rem] text-slate-200">
+                                  <p className="font-semibold text-amber-100/90">
+                                    {msg.title}
                                   </p>
-                                )}
-                                {msg.details && (
-                                  <p className="text-slate-300">
-                                    {msg.details}
-                                  </p>
-                                )}
-                              </div>
-                            ) : (
-                              <span className="text-xs text-slate-500">
-                                Message non disponible
-                              </span>
-                            )}
+                                  {msg.subtitle && (
+                                    <p className="mt-0.5 text-xs text-amber-200/90">
+                                      {msg.subtitle}
+                                    </p>
+                                  )}
+                                  {msg.details && (
+                                    <p className="mt-1 text-[0.7rem] text-slate-300">
+                                      {msg.details}
+                                    </p>
+                                  )}
+                                </div>
+                              )}
+                            </div>
                           </td>
                         </tr>
                       );
@@ -268,6 +270,12 @@ export default async function JourPage({
               </div>
             </>
           )}
+
+          <p className="mt-4 text-[0.65rem] text-slate-500">
+            ChatGPT peut commettre des erreurs. Il est recommandé de vérifier
+            les informations importantes. Voir les préférences en matière de
+            cookies.
+          </p>
         </div>
       </div>
     </main>

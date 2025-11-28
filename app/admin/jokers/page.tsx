@@ -2,30 +2,16 @@
 
 import Link from "next/link";
 import Logo from "@/components/Common/Logo";
+
 import { dailyAssignments, participants } from "@/lib/data";
 import type { DailyAssignment, JokerType, Participant } from "@/lib/domain";
+import { jokerStyles } from "@/lib/types";
 
-const jokerStyles: Partial<
-  Record<JokerType, { label: string; color: string }>
-> = {
-  VOL: {
-    label: "VOL",
-    color: "bg-rose-900/60 text-rose-100 border-rose-500/60",
-  },
-  PARTAGE: {
-    label: "PARTAGE",
-    color: "bg-amber-900/60 text-amber-100 border-amber-500/60",
-  },
-  GENTILLESSE: {
-    label: "GENTILLESSE",
-    color: "bg-emerald-900/60 text-emerald-100 border-emerald-500/60",
-  },
-  MYSTERE: {
-    label: "MYSTÈRE",
-    color: "bg-indigo-900/60 text-indigo-100 border-indigo-500/60",
-  },
-};
+const WEEK_JOKERS: JokerType[] = ["VOL", "PARTAGE", "GENTILLESSE", "MYSTERE"];
 
+/**
+ * Récupère le prénom depuis la liste des participants
+ */
 function getFirstName(id: string, list: Participant[]): string {
   return list.find((p) => p.id === id)?.firstName ?? id;
 }
@@ -56,10 +42,6 @@ function groupByWeek(assignments: DailyAssignment[]): WeekGroup[] {
   const map = new Map<string, DailyAssignment[]>();
 
   for (const a of assignments) {
-    // const dateObj = new Date(a.date + "T00:00:00");
-    // const day = dateObj.getDay();
-
-    // On veut voir aussi les week-ends dans la vue admin, donc on ne filtre pas ici
     const weekKey = getWeekKey(a.date);
     const group = map.get(weekKey) ?? [];
     group.push(a);
@@ -72,12 +54,24 @@ function groupByWeek(assignments: DailyAssignment[]): WeekGroup[] {
     result.push({ weekKey, assignments: group });
   }
 
-  // trier par semaine
   result.sort((a, b) => a.weekKey.localeCompare(b.weekKey));
   return result;
 }
 
+type JokerBuckets = Record<JokerType, DailyAssignment[]>;
+
+function makeEmptyBuckets(): JokerBuckets {
+  return {
+    VOL: [],
+    PARTAGE: [],
+    GENTILLESSE: [],
+    MYSTERE: [],
+    COMMUN: [],
+  };
+}
+
 export default function JokersAdminPage() {
+  // 🔹 On lit directement la constante
   const weeks = groupByWeek(dailyAssignments);
 
   return (
@@ -113,18 +107,41 @@ export default function JokersAdminPage() {
             month: "short",
           });
 
-          // petit récap nb de jokers par type
+          // Récap nb de jokers par type (tous rôles confondus)
           const summary: Record<string, number> = {};
           for (const a of week.assignments) {
             if (!a.joker) continue;
             summary[a.joker] = (summary[a.joker] ?? 0) + 1;
           }
 
+          // Vue par personne (en tant que receveur)
+          const perPerson: Record<string, JokerBuckets> = {};
+          for (const a of week.assignments) {
+            if (!a.joker) continue;
+            const joker = a.joker as JokerType;
+            if (!WEEK_JOKERS.includes(joker)) continue;
+
+            const pid = a.receiverId;
+            if (!perPerson[pid]) {
+              perPerson[pid] = makeEmptyBuckets();
+            }
+            perPerson[pid][joker].push(a);
+          }
+
+          const perPersonEntries = Object.entries(perPerson).sort(
+            ([idA], [idB]) => {
+              const nameA = getFirstName(idA, participants).toLowerCase();
+              const nameB = getFirstName(idB, participants).toLowerCase();
+              return nameA.localeCompare(nameB);
+            }
+          );
+
           return (
             <section
               key={week.weekKey}
-              className="rounded-3xl bg-slate-900/70 border border-slate-800/80 shadow-xl p-5 sm:p-6 space-y-4"
+              className="rounded-3xl bg-slate-900/70 border border-slate-800/80 shadow-xl p-5 sm:p-6 space-y-5"
             >
+              {/* En-tête semaine + résumé jokers */}
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
@@ -156,6 +173,7 @@ export default function JokersAdminPage() {
                 </div>
               </div>
 
+              {/* Tableau détaillé jour par jour */}
               <div className="overflow-hidden rounded-2xl border border-slate-800/80">
                 <table className="min-w-full text-sm">
                   <thead className="bg-slate-900/80 text-slate-300">
@@ -186,7 +204,7 @@ export default function JokersAdminPage() {
                       );
 
                       const joker = a.joker as JokerType | undefined;
-                      const info = joker && jokerStyles[joker];
+                      const info = joker ? jokerStyles[joker] : undefined;
 
                       return (
                         <tr
@@ -231,6 +249,108 @@ export default function JokersAdminPage() {
                   </tbody>
                 </table>
               </div>
+
+              {/* Vue par personne (en tant que receveur) */}
+              {perPersonEntries.length > 0 && (
+                <div className="rounded-2xl border border-slate-800/80 bg-slate-950/40 p-3 sm:p-4 space-y-2">
+                  <p className="text-xs text-slate-300 mb-1">
+                    Vue par personne (en tant que receveur) – vérification des
+                    Jokers par semaine (pas 2 fois le même type, au moins 1
+                    joker si possible).
+                  </p>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full text-xs sm:text-[0.8rem]">
+                      <thead className="bg-slate-900/80 text-slate-300">
+                        <tr>
+                          <th className="px-3 py-2 text-left font-medium">
+                            Participant
+                          </th>
+                          {WEEK_JOKERS.map((j) => {
+                            const info = jokerStyles[j];
+                            return (
+                              <th
+                                key={j}
+                                className="px-3 py-2 text-left font-medium"
+                              >
+                                {info?.label ?? j}
+                              </th>
+                            );
+                          })}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-800/80">
+                        {perPersonEntries.map(([pid, buckets]) => {
+                          const name = getFirstName(pid, participants);
+
+                          return (
+                            <tr key={pid}>
+                              <td className="px-3 py-2 text-slate-100">
+                                {name}
+                              </td>
+                              {WEEK_JOKERS.map((j) => {
+                                const list = buckets[j];
+                                if (!list || list.length === 0) {
+                                  return (
+                                    <td
+                                      key={j}
+                                      className="px-3 py-2 text-slate-500"
+                                    >
+                                      —
+                                    </td>
+                                  );
+                                }
+
+                                const isProblem = list.length > 1;
+
+                                const dates = list
+                                  .map((a) =>
+                                    new Date(
+                                      a.date + "T00:00:00"
+                                    ).toLocaleDateString("fr-FR", {
+                                      weekday: "short",
+                                      day: "2-digit",
+                                    })
+                                  )
+                                  .join(", ");
+
+                                const info = jokerStyles[j];
+
+                                return (
+                                  <td key={j} className="px-3 py-2">
+                                    <div
+                                      className={[
+                                        "inline-flex flex-col rounded-xl border px-2 py-1",
+                                        info?.color ??
+                                          "bg-slate-800/80 border-slate-600",
+                                        isProblem
+                                          ? "border-rose-500/70 ring-1 ring-rose-500/60"
+                                          : "",
+                                      ].join(" ")}
+                                    >
+                                      <span className="font-semibold uppercase tracking-wide text-[0.65rem]">
+                                        {info?.label ?? j} × {list.length}
+                                      </span>
+                                      <span className="text-[0.65rem] text-slate-100/90">
+                                        {dates}
+                                      </span>
+                                      {isProblem && (
+                                        <span className="mt-0.5 text-[0.6rem] text-rose-200">
+                                          ⚠ Règle violée : même joker &gt; 1
+                                          fois cette semaine pour ce receveur.
+                                        </span>
+                                      )}
+                                    </div>
+                                  </td>
+                                );
+                              })}
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
             </section>
           );
         })}

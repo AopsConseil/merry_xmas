@@ -1,7 +1,11 @@
 // lib/jokerGenerator.ts
 import type { DailyAssignment, JokerType } from "./domain";
 
-const JOKER_TYPES: JokerType[] = ["VOL", "PARTAGE", "GENTILLESSE", "MYSTERE"];
+// Jokers hebdo (on exclut "COMMUN" qui sert pour le collectif / week-end)
+const WEEK_JOKERS: JokerType[] = ["VOL", "PARTAGE", "GENTILLESSE", "MYSTERE"];
+
+// nb max *théorique* par type et par semaine
+const MAX_PER_TYPE = 4;
 
 function shuffleInPlace<T>(array: T[], random: () => number = Math.random) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -11,9 +15,10 @@ function shuffleInPlace<T>(array: T[], random: () => number = Math.random) {
 }
 
 /**
- * Assigne les jokers pour UNE semaine (lun–ven) :
- * - 4 de chaque type (dans la limite de ce qui est possible)
- * - pas 2 fois le même joker pour une même personne (en tant que receveur)
+ * Assigne les jokers pour UNE semaine (lun–ven) en respectant :
+ * - pas 2 fois le même joker pour une même personne sur la semaine (en tant que receveur)
+ * - au maximum MAX_PER_TYPE jokers de chaque type (sauf si pas assez de “slots”)
+ * - **chaque receveur a au moins 1 joker dans la semaine** si la capacité le permet
  * - ne modifie pas les jokers déjà présents
  */
 export function assignWeeklyJokers(
@@ -22,28 +27,116 @@ export function assignWeeklyJokers(
 ): DailyAssignment[] {
   const updated = weekAssignments.map((a) => ({ ...a }));
 
-  for (const jokerType of JOKER_TYPES) {
-    const receiversAlreadySelected = new Set<string>();
-    let assignedCount = 0;
+  // Stats actuelles (cas où certains jokers seraient déjà pré-remplis)
+  const jokerUsage: Record<JokerType, number> = {
+    VOL: 0,
+    PARTAGE: 0,
+    GENTILLESSE: 0,
+    MYSTERE: 0,
+    COMMUN: 0,
+  };
 
-    const candidateIndices = updated
-      .map((a, index) => ({ a, index }))
-      .filter(({ a }) => !a.joker) // ne touche pas aux jokers déjà définis
-      .map(({ index }) => index);
+  // Pour savoir quels types un receveur a déjà dans la semaine
+  const receiverHasType = new Map<string, Set<JokerType>>();
 
-    shuffleInPlace(candidateIndices, random);
+  updated.forEach((a) => {
+    if (!a.joker) return;
+    const type = a.joker as JokerType;
+    jokerUsage[type] = (jokerUsage[type] ?? 0) + 1;
 
-    for (const index of candidateIndices) {
-      if (assignedCount >= 4) break;
+    if (!receiverHasType.has(a.receiverId)) {
+      receiverHasType.set(a.receiverId, new Set());
+    }
+    receiverHasType.get(a.receiverId)!.add(type);
+  });
 
-      const assignment = updated[index];
-      const receiverId = assignment.receiverId;
+  // Slots encore libres par receveur (assignments sans joker)
+  const freeSlotsPerReceiver = new Map<string, number[]>();
+  updated.forEach((a, index) => {
+    if (a.joker) return;
+    const list = freeSlotsPerReceiver.get(a.receiverId) ?? [];
+    list.push(index);
+    freeSlotsPerReceiver.set(a.receiverId, list);
+  });
 
-      if (receiversAlreadySelected.has(receiverId)) continue;
+  const allReceivers = Array.from(new Set(updated.map((a) => a.receiverId)));
 
-      assignment.joker = jokerType;
-      receiversAlreadySelected.add(receiverId);
-      assignedCount++;
+  // Receveurs qui n'ont encore aucun joker (sur VOL/PARTAGE/GENTILLESSE/MYSTERE)
+  const needingJoker = allReceivers.filter((rid) => {
+    const set = receiverHasType.get(rid);
+    if (!set) return true;
+    // Si le set ne contient que "COMMUN", on considère qu'il n'a pas encore de joker "hebdo"
+    const hasWeekJoker = WEEK_JOKERS.some((t) => set.has(t));
+    return !hasWeekJoker;
+  });
+
+  shuffleInPlace(needingJoker, random);
+
+  // --- Étape A : garantir au moins 1 joker par receveur ---
+  for (const rid of needingJoker) {
+    const freeSlots = freeSlotsPerReceiver.get(rid);
+    if (!freeSlots || freeSlots.length === 0) {
+      // aucun slot libre pour cette personne → on ne peut pas faire de miracle
+      continue;
+    }
+
+    const existingSet = receiverHasType.get(rid) ?? new Set<JokerType>();
+
+    // Types encore possibles pour cette personne
+    const availableTypes = WEEK_JOKERS.filter((t) => {
+      const used = jokerUsage[t] ?? 0;
+      if (used >= MAX_PER_TYPE) return false;
+      if (existingSet.has(t)) return false;
+      return true;
+    });
+
+    if (availableTypes.length === 0) {
+      // plus de capacité disponible pour cette personne
+      continue;
+    }
+
+    shuffleInPlace(freeSlots, random);
+    const chosenSlot = freeSlots.shift()!; // on prend un slot libre
+
+    const chosenType =
+      availableTypes[Math.floor(random() * availableTypes.length)];
+
+    updated[chosenSlot].joker = chosenType;
+    jokerUsage[chosenType] = (jokerUsage[chosenType] ?? 0) + 1;
+
+    existingSet.add(chosenType);
+    receiverHasType.set(rid, existingSet);
+  }
+
+  // --- Étape B : remplir le reste de la capacité par type ---
+  for (const jokerType of WEEK_JOKERS) {
+    while ((jokerUsage[jokerType] ?? 0) < MAX_PER_TYPE) {
+      // Chercher les assignments sans joker
+      const candidateIndices: number[] = [];
+
+      updated.forEach((a, index) => {
+        if (a.joker) return;
+        const set = receiverHasType.get(a.receiverId) ?? new Set();
+        if (!set.has(jokerType)) {
+          candidateIndices.push(index);
+        }
+      });
+
+      if (candidateIndices.length === 0) {
+        // plus de slots libres pour ce type
+        break;
+      }
+
+      shuffleInPlace(candidateIndices, random);
+      const chosenIndex = candidateIndices[0];
+      const r = updated[chosenIndex].receiverId;
+
+      updated[chosenIndex].joker = jokerType;
+      jokerUsage[jokerType] = (jokerUsage[jokerType] ?? 0) + 1;
+
+      const set = receiverHasType.get(r) ?? new Set<JokerType>();
+      set.add(jokerType);
+      receiverHasType.set(r, set);
     }
   }
 
@@ -105,7 +198,7 @@ export function assignJokersForAllWeeks(
     result.push(...withJokers);
   }
 
-  // Ajout des éventuels week-ends (en pratique il n’y en a pas car on ne les génère pas)
+  // On rajoute les éventuels week-ends
   result.push(...weekendAssignments);
 
   result.sort((a, b) => a.date.localeCompare(b.date));

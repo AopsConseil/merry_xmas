@@ -19,7 +19,5 @@ export const participants: Participant[] = [
   { id: "sylvain", firstName: "Sylvain" },
 ];
 
-// Génération automatique : toutes les journées de semaine de décembre 2025
-// + jokers assignés semaine par semaine avec les règles
 export const dailyAssignments: DailyAssignment[] =
   generateMonthAssignmentsWithJokers(participants, 2025, 12);
