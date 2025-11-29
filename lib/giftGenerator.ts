@@ -5,7 +5,10 @@ import { assignJokersForAllWeeks } from "./jokerGenerator";
 /**
  * Mélange un tableau (Fisher–Yates)
  */
-function shuffleInPlace<T>(array: T[], random: () => number = Math.random) {
+function shuffleInPlace<T>(
+  array: T[],
+  random: () => number = Math.random
+): void {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -13,7 +16,7 @@ function shuffleInPlace<T>(array: T[], random: () => number = Math.random) {
 }
 
 /**
- * Derangement : permutation sans point fixe
+ * Dérangement : permutation sans point fixe
  * (personne ne se donne un chocolat à elle-même).
  */
 function generateDerangement<T>(
@@ -25,10 +28,10 @@ function generateDerangement<T>(
 
   if (n <= 1) return result;
 
-  // Shuffle d'abord
+  // Mélange d'abord
   shuffleInPlace(result, random);
 
-  // Corrige les cas où result[i] === items[i] en swapant avec un voisin
+  // Corrige les cas où result[i] === items[i] en swappant avec un voisin
   for (let i = 0; i < n; i++) {
     if (result[i] === items[i]) {
       const j = i === n - 1 ? i - 1 : i + 1;
@@ -40,10 +43,10 @@ function generateDerangement<T>(
 }
 
 /**
- * Essaie de générer un derangement en évitant que
+ * Essaie de générer un dérangement en évitant que
  * giverId -> receiverId soit identique au jour précédent.
  *
- * - On interdit: receiver == giver (derangement)
+ * - On interdit: receiver == giver (dérangement)
  * - On interdit: receiver == previousDayMap[giver]
  */
 function generateConstrainedDerangement(
@@ -66,8 +69,7 @@ function generateConstrainedDerangement(
     }
   }
 
-  const giverIndex: Record<string, number> = {};
-  giverIds.forEach((id, idx) => (giverIndex[id] = idx));
+  const baseReceivers = [...giverIds];
 
   // Pré-calcul des interdits par donneur
   const forbidden = new Map<string, Set<string>>();
@@ -82,9 +84,6 @@ function generateConstrainedDerangement(
     }
     forbidden.set(giver, set);
   }
-
-  // On tente plusieurs permutations aléatoires jusqu’à trouver une qui respecte toutes les contraintes
-  const baseReceivers = [...giverIds];
 
   for (let attempt = 0; attempt < maxTries; attempt++) {
     const receiverIds = [...baseReceivers];
@@ -107,7 +106,8 @@ function generateConstrainedDerangement(
   }
 
   // Si on n'y arrive pas (cas très rare / très petit n),
-  // on retombe sur un derangement simple.
+  // on retombe sur un dérangement simple (on accepte éventuellement
+  // la même paire qu'à la veille).
   return generateDerangement(giverIds, random);
 }
 
@@ -162,10 +162,10 @@ function generateDailyAssignmentsWithPreviousDay(
 
 /**
  * Génère toutes les assignations pour un mois complet,
- * pour les jours de semaine uniquement (lun–ven).
+ * pour les jours de semaine uniquement (lun–ven) et du 1er au 24 inclus.
  *
  * Contraintes :
- * - chaque jour est un derangement
+ * - chaque jour est un dérangement
  * - on évite qu'un même donneur ait le même receveur que la veille
  * - puis on applique assignJokersForAllWeeks pour les règles de Jokers
  */
@@ -207,6 +207,7 @@ export function generateMonthAssignmentsWithJokers(
         previousWorkingDayAssignments,
         random
       );
+
       result.push(...daily);
 
       // On mémorise pour le prochain jour ouvré
@@ -217,6 +218,6 @@ export function generateMonthAssignmentsWithJokers(
     date.setDate(dayOfMonth + 1);
   }
 
-  // Ici on applique la logique des Jokers semaine par semaine
+  // Ici on applique la logique des Jokers semaine par semaine + passes de couverture
   return assignJokersForAllWeeks(result, random);
 }

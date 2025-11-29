@@ -70,6 +70,11 @@ function makeEmptyBuckets(): JokerBuckets {
   };
 }
 
+type PersonWeekStats = {
+  asReceiver: JokerBuckets;
+  asGiver: JokerBuckets;
+};
+
 export default function JokersAdminPage() {
   // 🔹 On lit directement la constante
   const weeks = groupByWeek(dailyAssignments);
@@ -114,18 +119,31 @@ export default function JokersAdminPage() {
             summary[a.joker] = (summary[a.joker] ?? 0) + 1;
           }
 
-          // Vue par personne (en tant que receveur)
-          const perPerson: Record<string, JokerBuckets> = {};
+          // Vue par personne (receveur + donneur)
+          const perPerson: Record<string, PersonWeekStats> = {};
+
           for (const a of week.assignments) {
             if (!a.joker) continue;
             const joker = a.joker as JokerType;
             if (!WEEK_JOKERS.includes(joker)) continue;
 
-            const pid = a.receiverId;
-            if (!perPerson[pid]) {
-              perPerson[pid] = makeEmptyBuckets();
+            // Receveur
+            if (!perPerson[a.receiverId]) {
+              perPerson[a.receiverId] = {
+                asReceiver: makeEmptyBuckets(),
+                asGiver: makeEmptyBuckets(),
+              };
             }
-            perPerson[pid][joker].push(a);
+            perPerson[a.receiverId].asReceiver[joker].push(a);
+
+            // Donneur
+            if (!perPerson[a.giverId]) {
+              perPerson[a.giverId] = {
+                asReceiver: makeEmptyBuckets(),
+                asGiver: makeEmptyBuckets(),
+              };
+            }
+            perPerson[a.giverId].asGiver[joker].push(a);
           }
 
           const perPersonEntries = Object.entries(perPerson).sort(
@@ -250,13 +268,13 @@ export default function JokersAdminPage() {
                 </table>
               </div>
 
-              {/* Vue par personne (en tant que receveur) */}
+              {/* Vue par personne (receveur & donneur) */}
               {perPersonEntries.length > 0 && (
                 <div className="rounded-2xl border border-slate-800/80 bg-slate-950/40 p-3 sm:p-4 space-y-2">
                   <p className="text-xs text-slate-300 mb-1">
-                    Vue par personne (en tant que receveur) – vérification des
-                    Jokers par semaine (pas 2 fois le même type, au moins 1
-                    joker si possible).
+                    Vue par personne – rôle de receveur (R) et de donneur (D)
+                    pour chaque type de Joker. Alerte si quelqu&apos;un reçoit
+                    ou donne plus d&apos;une fois le même type sur la semaine.
                   </p>
                   <div className="overflow-x-auto">
                     <table className="min-w-full text-xs sm:text-[0.8rem]">
@@ -279,7 +297,7 @@ export default function JokersAdminPage() {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-800/80">
-                        {perPersonEntries.map(([pid, buckets]) => {
+                        {perPersonEntries.map(([pid, stats]) => {
                           const name = getFirstName(pid, participants);
 
                           return (
@@ -288,8 +306,13 @@ export default function JokersAdminPage() {
                                 {name}
                               </td>
                               {WEEK_JOKERS.map((j) => {
-                                const list = buckets[j];
-                                if (!list || list.length === 0) {
+                                const recvList = stats.asReceiver[j];
+                                const giveList = stats.asGiver[j];
+
+                                if (
+                                  (!recvList || recvList.length === 0) &&
+                                  (!giveList || giveList.length === 0)
+                                ) {
                                   return (
                                     <td
                                       key={j}
@@ -300,44 +323,128 @@ export default function JokersAdminPage() {
                                   );
                                 }
 
-                                const isProblem = list.length > 1;
-
-                                const dates = list
-                                  .map((a) =>
-                                    new Date(
-                                      a.date + "T00:00:00"
-                                    ).toLocaleDateString("fr-FR", {
-                                      weekday: "short",
-                                      day: "2-digit",
-                                    })
-                                  )
-                                  .join(", ");
-
                                 const info = jokerStyles[j];
+
+                                const recvProblem =
+                                  recvList && recvList.length > 1;
+                                const giveProblem =
+                                  giveList && giveList.length > 1;
+
+                                const recvDates =
+                                  recvList && recvList.length > 0
+                                    ? recvList
+                                        .map((a) =>
+                                          new Date(
+                                            a.date + "T00:00:00"
+                                          ).toLocaleDateString("fr-FR", {
+                                            weekday: "short",
+                                            day: "2-digit",
+                                          })
+                                        )
+                                        .join(", ")
+                                    : "";
+
+                                const recvGivers =
+                                  recvList && recvList.length > 0
+                                    ? Array.from(
+                                        new Set(
+                                          recvList.map((a) =>
+                                            getFirstName(
+                                              a.giverId,
+                                              participants
+                                            )
+                                          )
+                                        )
+                                      ).join(", ")
+                                    : "";
+
+                                const giveDates =
+                                  giveList && giveList.length > 0
+                                    ? giveList
+                                        .map((a) =>
+                                          new Date(
+                                            a.date + "T00:00:00"
+                                          ).toLocaleDateString("fr-FR", {
+                                            weekday: "short",
+                                            day: "2-digit",
+                                          })
+                                        )
+                                        .join(", ")
+                                    : "";
+
+                                const giveReceivers =
+                                  giveList && giveList.length > 0
+                                    ? Array.from(
+                                        new Set(
+                                          giveList.map((a) =>
+                                            getFirstName(
+                                              a.receiverId,
+                                              participants
+                                            )
+                                          )
+                                        )
+                                      ).join(", ")
+                                    : "";
 
                                 return (
                                   <td key={j} className="px-3 py-2">
-                                    <div
-                                      className={[
-                                        "inline-flex flex-col rounded-xl border px-2 py-1",
-                                        info?.color ??
-                                          "bg-slate-800/80 border-slate-600",
-                                        isProblem
-                                          ? "border-rose-500/70 ring-1 ring-rose-500/60"
-                                          : "",
-                                      ].join(" ")}
-                                    >
-                                      <span className="font-semibold uppercase tracking-wide text-[0.65rem]">
-                                        {info?.label ?? j} × {list.length}
-                                      </span>
-                                      <span className="text-[0.65rem] text-slate-100/90">
-                                        {dates}
-                                      </span>
-                                      {isProblem && (
-                                        <span className="mt-0.5 text-[0.6rem] text-rose-200">
-                                          ⚠ Règle violée : même joker &gt; 1
-                                          fois cette semaine pour ce receveur.
-                                        </span>
+                                    <div className="flex flex-col gap-1">
+                                      {recvList && recvList.length > 0 && (
+                                        <div
+                                          className={[
+                                            "inline-flex flex-col rounded-xl border px-2 py-1",
+                                            info?.color ??
+                                              "bg-slate-800/80 border-slate-600",
+                                            recvProblem
+                                              ? "border-rose-500/70 ring-1 ring-rose-500/60"
+                                              : "",
+                                          ].join(" ")}
+                                        >
+                                          <span className="font-semibold uppercase tracking-wide text-[0.65rem]">
+                                            R × {recvList.length}
+                                          </span>
+                                          <span className="text-[0.65rem] text-slate-100/90">
+                                            {recvDates}
+                                          </span>
+                                          <span className="text-[0.6rem] text-slate-100/80">
+                                            par : {recvGivers}
+                                          </span>
+                                          {recvProblem && (
+                                            <span className="mt-0.5 text-[0.6rem] text-rose-200">
+                                              ⚠ Même joker reçu &gt; 1 fois
+                                              cette semaine.
+                                            </span>
+                                          )}
+                                        </div>
+                                      )}
+
+                                      {giveList && giveList.length > 0 && (
+                                        <div
+                                          className={[
+                                            "inline-flex flex-col rounded-xl border px-2 py-1",
+                                            info?.color ??
+                                              "bg-slate-800/80 border-slate-600",
+                                            giveProblem
+                                              ? "border-rose-500/70 ring-1 ring-rose-500/60"
+                                              : "",
+                                          ].join(" ")}
+                                        >
+                                          <span className="font-semibold uppercase tracking-wide text-[0.65rem]">
+                                            D × {giveList.length}
+                                          </span>
+                                          <span className="text-[0.65rem] text-slate-100/90">
+                                            {giveDates}
+                                          </span>
+                                          <span className="text-[0.6rem] text-slate-100/80">
+                                            à : {giveReceivers}
+                                          </span>
+                                          {giveProblem && (
+                                            <span className="mt-0.5 text-[0.6rem] text-rose-200">
+                                              ⚠ Même joker donné &gt; 1 fois
+                                              cette semaine.
+                                            </span>
+                                          )}
+                                        </div>
                                       )}
                                     </div>
                                   </td>
