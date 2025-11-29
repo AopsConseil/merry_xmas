@@ -95,9 +95,9 @@ export default async function JourPage({
     );
   }
 
-  // const now = new Date();
+  const now = new Date();
   // Pour tester : figer un jour de décembre
-  const now = new Date(new Date().getFullYear(), 11, 3); // 3 décembre (test)
+  //   const now = new Date(new Date().getFullYear(), 11, 3); // 3 décembre (test)
   const year = now.getFullYear();
   const dateObj = new Date(year, 11, dayNumber); // 11 = décembre
   const dateKey = `${year}-12-${String(dayNumber).padStart(2, "0")}`;
