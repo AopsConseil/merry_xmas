@@ -2,48 +2,52 @@
   {
     "date": "2025-12-01",
     "giverId": "ivan",
-    "receiverId": "eliot"
+    "receiverId": "jc",
+    "joker": "MYSTERE"
   },
   {
     "date": "2025-12-01",
     "giverId": "vincent",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-01",
-    "giverId": "nathalie",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-01",
-    "giverId": "josephine",
     "receiverId": "florence"
   },
   {
     "date": "2025-12-01",
-    "giverId": "jc",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-01",
-    "giverId": "jp",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-01",
-    "giverId": "fx",
-    "receiverId": "sebastien",
+    "giverId": "nathalie",
+    "receiverId": "maxime",
     "joker": "PARTAGE"
   },
   {
     "date": "2025-12-01",
+    "giverId": "josephine",
+    "receiverId": "jp",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-01",
+    "giverId": "jc",
+    "receiverId": "nathalie",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-01",
+    "giverId": "jp",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-01",
+    "giverId": "fx",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-01",
     "giverId": "maxime",
-    "receiverId": "josephine"
+    "receiverId": "anna",
+    "joker": "VOL"
   },
   {
     "date": "2025-12-01",
     "giverId": "charlotte",
-    "receiverId": "vincent"
+    "receiverId": "sebastien"
   },
   {
     "date": "2025-12-01",
@@ -53,526 +57,520 @@
   {
     "date": "2025-12-01",
     "giverId": "florence",
-    "receiverId": "charlotte"
+    "receiverId": "josephine"
   },
   {
     "date": "2025-12-01",
     "giverId": "sebastien",
-    "receiverId": "jc"
+    "receiverId": "eliot"
   },
   {
     "date": "2025-12-01",
     "giverId": "eliot",
-    "receiverId": "fx"
+    "receiverId": "fx",
+    "joker": "PARTAGE"
   },
   {
     "date": "2025-12-01",
     "giverId": "sylvain",
-    "receiverId": "nathalie",
-    "joker": "MYSTERE"
+    "receiverId": "charlotte"
   },
   {
     "date": "2025-12-02",
     "giverId": "ivan",
-    "receiverId": "sylvain",
-    "joker": "MYSTERE"
+    "receiverId": "sylvain"
   },
   {
     "date": "2025-12-02",
+    "giverId": "vincent",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "nathalie",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "josephine",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "jc",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "jp",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "fx",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "maxime",
+    "receiverId": "jc"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "charlotte",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "anna",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "florence",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "sebastien",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "eliot",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-02",
+    "giverId": "sylvain",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "ivan",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "vincent",
+    "receiverId": "jc"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "nathalie",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "josephine",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "jc",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "jp",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "fx",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "maxime",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "charlotte",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "anna",
+    "receiverId": "vincent",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "florence",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "sebastien",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "eliot",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-03",
+    "giverId": "sylvain",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "ivan",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-04",
     "giverId": "vincent",
     "receiverId": "eliot",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "nathalie",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "josephine",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "jc",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "jp",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "fx",
+    "receiverId": "maxime",
     "joker": "VOL"
   },
   {
-    "date": "2025-12-02",
-    "giverId": "nathalie",
+    "date": "2025-12-04",
+    "giverId": "maxime",
     "receiverId": "jc"
   },
   {
-    "date": "2025-12-02",
-    "giverId": "josephine",
+    "date": "2025-12-04",
+    "giverId": "charlotte",
+    "receiverId": "florence",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-04",
+    "giverId": "anna",
     "receiverId": "charlotte",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "jc",
-    "receiverId": "florence",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "jp",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "fx",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "maxime",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "charlotte",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "anna",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "florence",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "sebastien",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "eliot",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-02",
-    "giverId": "sylvain",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "ivan",
-    "receiverId": "jc"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "vincent",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "nathalie",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "josephine",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "jc",
-    "receiverId": "maxime",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "jp",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "fx",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "maxime",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "charlotte",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "anna",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "florence",
-    "receiverId": "ivan",
     "joker": "MYSTERE"
   },
   {
-    "date": "2025-12-03",
-    "giverId": "sebastien",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "eliot",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-03",
-    "giverId": "sylvain",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "ivan",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "vincent",
-    "receiverId": "jc",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "nathalie",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "josephine",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "jc",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "jp",
-    "receiverId": "nathalie",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "fx",
-    "receiverId": "jp",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "maxime",
-    "receiverId": "vincent",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "charlotte",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "anna",
-    "receiverId": "sylvain"
-  },
-  {
     "date": "2025-12-04",
     "giverId": "florence",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "sebastien",
-    "receiverId": "josephine",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "eliot",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-04",
-    "giverId": "sylvain",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "ivan",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "vincent",
-    "receiverId": "anna",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "nathalie",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "josephine",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "jc",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "jp",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "fx",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "maxime",
-    "receiverId": "jc"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "charlotte",
-    "receiverId": "vincent",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "anna",
-    "receiverId": "fx",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "florence",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "sebastien",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "eliot",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-05",
-    "giverId": "sylvain",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "ivan",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "vincent",
-    "receiverId": "florence",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "nathalie",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "josephine",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "jc",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "jp",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "fx",
-    "receiverId": "maxime",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "maxime",
     "receiverId": "sebastien",
     "joker": "GENTILLESSE"
   },
   {
-    "date": "2025-12-08",
-    "giverId": "charlotte",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "anna",
+    "date": "2025-12-04",
+    "giverId": "sebastien",
     "receiverId": "jp"
   },
   {
-    "date": "2025-12-08",
-    "giverId": "florence",
-    "receiverId": "jc",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "sebastien",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-08",
+    "date": "2025-12-04",
     "giverId": "eliot",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-08",
-    "giverId": "sylvain",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "ivan",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "vincent",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "nathalie",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "josephine",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "jc",
-    "receiverId": "jp",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "jp",
-    "receiverId": "maxime",
+    "receiverId": "sylvain",
     "joker": "VOL"
   },
   {
-    "date": "2025-12-09",
-    "giverId": "fx",
-    "receiverId": "charlotte",
-    "joker": "GENTILLESSE"
+    "date": "2025-12-04",
+    "giverId": "sylvain",
+    "receiverId": "ivan"
   },
   {
-    "date": "2025-12-09",
-    "giverId": "maxime",
+    "date": "2025-12-05",
+    "giverId": "ivan",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-05",
+    "giverId": "vincent",
+    "receiverId": "ivan",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-05",
+    "giverId": "nathalie",
     "receiverId": "florence"
   },
   {
-    "date": "2025-12-09",
-    "giverId": "charlotte",
+    "date": "2025-12-05",
+    "giverId": "josephine",
+    "receiverId": "sylvain",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-05",
+    "giverId": "jc",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-05",
+    "giverId": "jp",
+    "receiverId": "jc"
+  },
+  {
+    "date": "2025-12-05",
+    "giverId": "fx",
     "receiverId": "vincent"
   },
   {
-    "date": "2025-12-09",
+    "date": "2025-12-05",
+    "giverId": "maxime",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-05",
+    "giverId": "charlotte",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-05",
     "giverId": "anna",
     "receiverId": "sebastien"
   },
   {
-    "date": "2025-12-09",
+    "date": "2025-12-05",
     "giverId": "florence",
-    "receiverId": "sylvain"
+    "receiverId": "josephine",
+    "joker": "GENTILLESSE"
   },
   {
-    "date": "2025-12-09",
+    "date": "2025-12-05",
     "giverId": "sebastien",
-    "receiverId": "jc"
-  },
-  {
-    "date": "2025-12-09",
-    "giverId": "eliot",
     "receiverId": "anna"
   },
   {
-    "date": "2025-12-09",
-    "giverId": "sylvain",
-    "receiverId": "eliot"
+    "date": "2025-12-05",
+    "giverId": "eliot",
+    "receiverId": "jp"
   },
   {
-    "date": "2025-12-10",
+    "date": "2025-12-05",
+    "giverId": "sylvain",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-08",
     "giverId": "ivan",
     "receiverId": "josephine"
   },
   {
-    "date": "2025-12-10",
+    "date": "2025-12-08",
     "giverId": "vincent",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-10",
-    "giverId": "nathalie",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-10",
-    "giverId": "josephine",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-10",
-    "giverId": "jc",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-10",
-    "giverId": "jp",
     "receiverId": "jc"
   },
   {
-    "date": "2025-12-10",
-    "giverId": "fx",
-    "receiverId": "sebastien"
+    "date": "2025-12-08",
+    "giverId": "nathalie",
+    "receiverId": "eliot"
   },
   {
-    "date": "2025-12-10",
-    "giverId": "maxime",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-10",
-    "giverId": "charlotte",
+    "date": "2025-12-08",
+    "giverId": "josephine",
     "receiverId": "fx",
     "joker": "GENTILLESSE"
   },
   {
+    "date": "2025-12-08",
+    "giverId": "jc",
+    "receiverId": "nathalie",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "jp",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "fx",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "maxime",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "charlotte",
+    "receiverId": "sylvain",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "anna",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "florence",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "sebastien",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "eliot",
+    "receiverId": "maxime",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-08",
+    "giverId": "sylvain",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "ivan",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "vincent",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "nathalie",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "josephine",
+    "receiverId": "jc",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "jc",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "jp",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "fx",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "maxime",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "charlotte",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "anna",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "florence",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "sebastien",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "eliot",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-09",
+    "giverId": "sylvain",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "ivan",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "vincent",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "nathalie",
+    "receiverId": "jc"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "josephine",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "jc",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "jp",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "fx",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "maxime",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-10",
+    "giverId": "charlotte",
+    "receiverId": "florence",
+    "joker": "MYSTERE"
+  },
+  {
     "date": "2025-12-10",
     "giverId": "anna",
-    "receiverId": "jp"
+    "receiverId": "nathalie"
   },
   {
     "date": "2025-12-10",
     "giverId": "florence",
-    "receiverId": "ivan",
+    "receiverId": "eliot",
     "joker": "PARTAGE"
   },
   {
     "date": "2025-12-10",
     "giverId": "sebastien",
-    "receiverId": "florence"
+    "receiverId": "fx"
   },
   {
     "date": "2025-12-10",
@@ -583,38 +581,37 @@
   {
     "date": "2025-12-10",
     "giverId": "sylvain",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-11",
-    "giverId": "ivan",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-11",
-    "giverId": "vincent",
     "receiverId": "jp"
   },
   {
     "date": "2025-12-11",
-    "giverId": "nathalie",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-11",
-    "giverId": "josephine",
+    "giverId": "ivan",
     "receiverId": "jc"
   },
   {
     "date": "2025-12-11",
+    "giverId": "vincent",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-11",
+    "giverId": "nathalie",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-11",
+    "giverId": "josephine",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-11",
     "giverId": "jc",
-    "receiverId": "josephine"
+    "receiverId": "jp"
   },
   {
     "date": "2025-12-11",
     "giverId": "jp",
-    "receiverId": "sylvain",
-    "joker": "GENTILLESSE"
+    "receiverId": "florence"
   },
   {
     "date": "2025-12-11",
@@ -629,22 +626,23 @@
   {
     "date": "2025-12-11",
     "giverId": "charlotte",
-    "receiverId": "florence"
+    "receiverId": "sylvain"
   },
   {
     "date": "2025-12-11",
     "giverId": "anna",
-    "receiverId": "maxime"
+    "receiverId": "charlotte",
+    "joker": "GENTILLESSE"
   },
   {
     "date": "2025-12-11",
     "giverId": "florence",
-    "receiverId": "vincent"
+    "receiverId": "sebastien"
   },
   {
     "date": "2025-12-11",
     "giverId": "sebastien",
-    "receiverId": "fx"
+    "receiverId": "eliot"
   },
   {
     "date": "2025-12-11",
@@ -655,198 +653,195 @@
   {
     "date": "2025-12-11",
     "giverId": "sylvain",
-    "receiverId": "sebastien"
+    "receiverId": "josephine"
   },
   {
     "date": "2025-12-12",
     "giverId": "ivan",
-    "receiverId": "florence"
+    "receiverId": "maxime"
   },
   {
     "date": "2025-12-12",
     "giverId": "vincent",
-    "receiverId": "anna",
-    "joker": "PARTAGE"
+    "receiverId": "jc"
   },
   {
     "date": "2025-12-12",
     "giverId": "nathalie",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-12",
-    "giverId": "josephine",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-12",
-    "giverId": "jc",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-12",
-    "giverId": "jp",
-    "receiverId": "nathalie",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-12",
-    "giverId": "fx",
     "receiverId": "eliot",
     "joker": "MYSTERE"
   },
   {
     "date": "2025-12-12",
-    "giverId": "maxime",
-    "receiverId": "josephine",
-    "joker": "VOL"
+    "giverId": "josephine",
+    "receiverId": "nathalie"
   },
   {
     "date": "2025-12-12",
-    "giverId": "charlotte",
-    "receiverId": "jc"
-  },
-  {
-    "date": "2025-12-12",
-    "giverId": "anna",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-12",
-    "giverId": "florence",
+    "giverId": "jc",
     "receiverId": "fx"
   },
   {
     "date": "2025-12-12",
-    "giverId": "sebastien",
+    "giverId": "jp",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-12",
+    "giverId": "fx",
+    "receiverId": "josephine",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-12",
+    "giverId": "maxime",
+    "receiverId": "jp",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-12",
+    "giverId": "charlotte",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-12",
+    "giverId": "anna",
     "receiverId": "ivan"
   },
   {
     "date": "2025-12-12",
+    "giverId": "florence",
+    "receiverId": "anna",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-12",
+    "giverId": "sebastien",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-12",
     "giverId": "eliot",
-    "receiverId": "charlotte"
+    "receiverId": "sebastien",
+    "joker": "VOL"
   },
   {
     "date": "2025-12-12",
     "giverId": "sylvain",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "ivan",
-    "receiverId": "nathalie",
+    "receiverId": "vincent",
     "joker": "MYSTERE"
   },
   {
     "date": "2025-12-15",
+    "giverId": "ivan",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-15",
     "giverId": "vincent",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "nathalie",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "josephine",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "jc",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "jp",
-    "receiverId": "maxime",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "fx",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "maxime",
-    "receiverId": "jc"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "charlotte",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "anna",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "florence",
-    "receiverId": "jp",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-15",
-    "giverId": "sebastien",
     "receiverId": "anna"
   },
   {
     "date": "2025-12-15",
-    "giverId": "eliot",
-    "receiverId": "ivan"
+    "giverId": "nathalie",
+    "receiverId": "josephine"
   },
   {
     "date": "2025-12-15",
-    "giverId": "sylvain",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-16",
-    "giverId": "ivan",
-    "receiverId": "eliot",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-16",
-    "giverId": "vincent",
-    "receiverId": "jp",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-16",
-    "giverId": "nathalie",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-16",
     "giverId": "josephine",
-    "receiverId": "maxime"
+    "receiverId": "charlotte"
   },
   {
-    "date": "2025-12-16",
+    "date": "2025-12-15",
     "giverId": "jc",
-    "receiverId": "josephine",
-    "joker": "MYSTERE"
+    "receiverId": "nathalie"
   },
   {
-    "date": "2025-12-16",
+    "date": "2025-12-15",
     "giverId": "jp",
     "receiverId": "sylvain"
   },
   {
-    "date": "2025-12-16",
+    "date": "2025-12-15",
     "giverId": "fx",
+    "receiverId": "ivan",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "maxime",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "charlotte",
+    "receiverId": "jc"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "anna",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "florence",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "sebastien",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "eliot",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-15",
+    "giverId": "sylvain",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "ivan",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "vincent",
     "receiverId": "jc"
   },
   {
     "date": "2025-12-16",
+    "giverId": "nathalie",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "josephine",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "jc",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "jp",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "fx",
+    "receiverId": "vincent",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-16",
     "giverId": "maxime",
-    "receiverId": "ivan",
-    "joker": "PARTAGE"
+    "receiverId": "charlotte"
   },
   {
     "date": "2025-12-16",
@@ -856,471 +851,476 @@
   {
     "date": "2025-12-16",
     "giverId": "anna",
-    "receiverId": "vincent"
+    "receiverId": "josephine"
   },
   {
     "date": "2025-12-16",
     "giverId": "florence",
+    "receiverId": "sylvain",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "sebastien",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "eliot",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-16",
+    "giverId": "sylvain",
+    "receiverId": "jp",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "ivan",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "vincent",
+    "receiverId": "fx",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "nathalie",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "josephine",
     "receiverId": "charlotte",
     "joker": "MYSTERE"
   },
   {
-    "date": "2025-12-16",
-    "giverId": "sebastien",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-16",
-    "giverId": "eliot",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-16",
-    "giverId": "sylvain",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "ivan",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "vincent",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "nathalie",
-    "receiverId": "sylvain",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "josephine",
-    "receiverId": "nathalie"
-  },
-  {
     "date": "2025-12-17",
     "giverId": "jc",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "jp",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "fx",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "maxime",
-    "receiverId": "florence",
+    "receiverId": "sebastien",
     "joker": "VOL"
   },
   {
     "date": "2025-12-17",
-    "giverId": "charlotte",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "anna",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "florence",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "sebastien",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "eliot",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-17",
-    "giverId": "sylvain",
+    "giverId": "jp",
     "receiverId": "jc"
   },
   {
-    "date": "2025-12-18",
-    "giverId": "ivan",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "vincent",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "nathalie",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "josephine",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "jc",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "jp",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-18",
+    "date": "2025-12-17",
     "giverId": "fx",
     "receiverId": "sylvain"
   },
   {
-    "date": "2025-12-18",
+    "date": "2025-12-17",
     "giverId": "maxime",
-    "receiverId": "jc"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "charlotte",
-    "receiverId": "anna",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "anna",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "florence",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-18",
-    "giverId": "sebastien",
     "receiverId": "jp"
   },
   {
-    "date": "2025-12-18",
+    "date": "2025-12-17",
+    "giverId": "charlotte",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "anna",
+    "receiverId": "florence",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "florence",
+    "receiverId": "eliot",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "sebastien",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-17",
     "giverId": "eliot",
-    "receiverId": "vincent",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-17",
+    "giverId": "sylvain",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "ivan",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "vincent",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "nathalie",
+    "receiverId": "anna",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "josephine",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "jc",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "jp",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "fx",
+    "receiverId": "josephine",
     "joker": "MYSTERE"
   },
   {
     "date": "2025-12-18",
-    "giverId": "sylvain",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "ivan",
-    "receiverId": "jc",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "vincent",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "nathalie",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "josephine",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "jc",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "jp",
-    "receiverId": "sebastien",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "fx",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-19",
     "giverId": "maxime",
-    "receiverId": "anna",
-    "joker": "VOL"
+    "receiverId": "sebastien",
+    "joker": "MYSTERE"
   },
   {
-    "date": "2025-12-19",
+    "date": "2025-12-18",
     "giverId": "charlotte",
     "receiverId": "jp"
   },
   {
-    "date": "2025-12-19",
+    "date": "2025-12-18",
     "giverId": "anna",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "florence",
-    "receiverId": "maxime"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "sebastien",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "eliot",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-19",
-    "giverId": "sylvain",
-    "receiverId": "fx",
-    "joker": "PARTAGE"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "ivan",
-    "receiverId": "nathalie"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "vincent",
-    "receiverId": "eliot"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "nathalie",
-    "receiverId": "sebastien"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "josephine",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "jc",
-    "receiverId": "ivan"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "jp",
     "receiverId": "jc"
   },
   {
-    "date": "2025-12-22",
-    "giverId": "fx",
-    "receiverId": "florence"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "maxime",
-    "receiverId": "jp"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "charlotte",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "anna",
+    "date": "2025-12-18",
+    "giverId": "florence",
     "receiverId": "charlotte"
   },
   {
-    "date": "2025-12-22",
-    "giverId": "florence",
-    "receiverId": "vincent"
-  },
-  {
-    "date": "2025-12-22",
+    "date": "2025-12-18",
     "giverId": "sebastien",
     "receiverId": "fx"
   },
   {
-    "date": "2025-12-22",
+    "date": "2025-12-18",
     "giverId": "eliot",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-18",
+    "giverId": "sylvain",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "ivan",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "vincent",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "nathalie",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "josephine",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "jc",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "jp",
     "receiverId": "maxime",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-22",
-    "giverId": "sylvain",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "ivan",
-    "receiverId": "fx"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "vincent",
-    "receiverId": "sylvain"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "nathalie",
-    "receiverId": "florence",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "josephine",
-    "receiverId": "sebastien",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "jc",
-    "receiverId": "anna"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "jp",
-    "receiverId": "vincent",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "fx",
-    "receiverId": "charlotte"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "maxime",
-    "receiverId": "jc",
     "joker": "PARTAGE"
   },
   {
-    "date": "2025-12-23",
+    "date": "2025-12-19",
+    "giverId": "fx",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "maxime",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-19",
     "giverId": "charlotte",
-    "receiverId": "jp",
+    "receiverId": "jc",
     "joker": "VOL"
   },
   {
-    "date": "2025-12-23",
+    "date": "2025-12-19",
     "giverId": "anna",
-    "receiverId": "eliot"
+    "receiverId": "vincent"
   },
   {
-    "date": "2025-12-23",
+    "date": "2025-12-19",
     "giverId": "florence",
-    "receiverId": "josephine"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "sebastien",
-    "receiverId": "ivan",
-    "joker": "VOL"
-  },
-  {
-    "date": "2025-12-23",
-    "giverId": "eliot",
     "receiverId": "nathalie",
     "joker": "VOL"
   },
   {
-    "date": "2025-12-23",
+    "date": "2025-12-19",
+    "giverId": "sebastien",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-19",
+    "giverId": "eliot",
+    "receiverId": "sebastien",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-19",
     "giverId": "sylvain",
-    "receiverId": "maxime"
+    "receiverId": "josephine"
   },
   {
-    "date": "2025-12-24",
+    "date": "2025-12-22",
     "giverId": "ivan",
+    "receiverId": "vincent"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "vincent",
+    "receiverId": "jc"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "nathalie",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "josephine",
     "receiverId": "maxime"
   },
   {
-    "date": "2025-12-24",
-    "giverId": "vincent",
-    "receiverId": "nathalie"
+    "date": "2025-12-22",
+    "giverId": "jc",
+    "receiverId": "eliot"
   },
   {
-    "date": "2025-12-24",
+    "date": "2025-12-22",
+    "giverId": "jp",
+    "receiverId": "sebastien"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "fx",
+    "receiverId": "sylvain",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "maxime",
+    "receiverId": "florence"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "charlotte",
+    "receiverId": "nathalie",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "anna",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "florence",
+    "receiverId": "jp"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "sebastien",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "eliot",
+    "receiverId": "fx"
+  },
+  {
+    "date": "2025-12-22",
+    "giverId": "sylvain",
+    "receiverId": "ivan",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "ivan",
+    "receiverId": "florence",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "vincent",
+    "receiverId": "charlotte"
+  },
+  {
+    "date": "2025-12-23",
     "giverId": "nathalie",
     "receiverId": "eliot",
     "joker": "PARTAGE"
   },
   {
-    "date": "2025-12-24",
+    "date": "2025-12-23",
     "giverId": "josephine",
-    "receiverId": "ivan",
+    "receiverId": "anna"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "jc",
+    "receiverId": "fx",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "jp",
+    "receiverId": "josephine"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "fx",
+    "receiverId": "jp",
     "joker": "PARTAGE"
   },
   {
-    "date": "2025-12-24",
-    "giverId": "jc",
+    "date": "2025-12-23",
+    "giverId": "maxime",
     "receiverId": "sebastien"
   },
   {
-    "date": "2025-12-24",
-    "giverId": "jp",
-    "receiverId": "jc",
-    "joker": "MYSTERE"
-  },
-  {
-    "date": "2025-12-24",
-    "giverId": "fx",
-    "receiverId": "josephine",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-24",
-    "giverId": "maxime",
-    "receiverId": "sylvain",
-    "joker": "GENTILLESSE"
-  },
-  {
-    "date": "2025-12-24",
+    "date": "2025-12-23",
     "giverId": "charlotte",
+    "receiverId": "jc",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "anna",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "florence",
     "receiverId": "vincent"
   },
   {
-    "date": "2025-12-24",
-    "giverId": "anna",
-    "receiverId": "florence"
+    "date": "2025-12-23",
+    "giverId": "sebastien",
+    "receiverId": "ivan"
   },
   {
-    "date": "2025-12-24",
-    "giverId": "florence",
-    "receiverId": "charlotte",
+    "date": "2025-12-23",
+    "giverId": "eliot",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-23",
+    "giverId": "sylvain",
+    "receiverId": "maxime",
     "joker": "GENTILLESSE"
   },
   {
     "date": "2025-12-24",
-    "giverId": "sebastien",
+    "giverId": "ivan",
+    "receiverId": "sylvain"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "vincent",
     "receiverId": "fx",
     "joker": "MYSTERE"
   },
   {
     "date": "2025-12-24",
+    "giverId": "nathalie",
+    "receiverId": "jp",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "josephine",
+    "receiverId": "ivan"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "jc",
+    "receiverId": "maxime"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "jp",
+    "receiverId": "eliot"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "fx",
+    "receiverId": "nathalie"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "maxime",
+    "receiverId": "josephine",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "charlotte",
+    "receiverId": "sebastien",
+    "joker": "GENTILLESSE"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "anna",
+    "receiverId": "vincent",
+    "joker": "VOL"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "florence",
+    "receiverId": "charlotte",
+    "joker": "MYSTERE"
+  },
+  {
+    "date": "2025-12-24",
+    "giverId": "sebastien",
+    "receiverId": "anna",
+    "joker": "PARTAGE"
+  },
+  {
+    "date": "2025-12-24",
     "giverId": "eliot",
-    "receiverId": "jp"
+    "receiverId": "florence"
   },
   {
     "date": "2025-12-24",
     "giverId": "sylvain",
-    "receiverId": "anna",
-    "joker": "PARTAGE"
+    "receiverId": "jc"
   }
 ]
