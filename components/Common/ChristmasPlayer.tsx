@@ -16,6 +16,11 @@ const tracks: Track[] = [
   { src: "/vive_le_vent.mp3", title: "Christmas vibes #5" },
   { src: "/petit_papa_noel.mp3", title: "Christmas vibes #6" },
   { src: "/wish_merry_xmas.mp3", title: "Christmas vibes #7" },
+  { src: "/wonderful_time.mp3", title: "Christmas vibes #8" },
+  { src: "/the_christmas_song.mp3", title: "Christmas vibes #9" },
+  { src: "/look_a_lot_like_christmas.mp3", title: "Christmas vibes #10" },
+  { src: "/let_it_snow.mp3", title: "Christmas vibes #11" },
+  { src: "/rockin_around.mp3", title: "Christmas vibes #12" },
 ];
 
 function getRandomIndex(exclude?: number): number {
