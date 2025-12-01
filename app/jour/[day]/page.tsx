@@ -18,7 +18,7 @@ const participantPhotos: Partial<Record<string, string>> = {
   anna: "/people/anna.jpg",
   vincent: "/people/vincent.jpg",
   nathalie: "/people/nathalie.png",
-  maxime: "/people/maxime.jpg",
+  maxime: "/people/maxime.png",
   jp: "/people/jp.jpg",
   jc: "/people/jc.png",
   fx: "/people/fx.webp",
