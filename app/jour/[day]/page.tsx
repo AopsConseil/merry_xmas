@@ -367,12 +367,6 @@ export default async function JourPage({
               </div>
             </>
           )}
-
-          <p className="mt-4 text-[0.65rem] text-slate-500">
-            ChatGPT peut commettre des erreurs. Il est recommandé de vérifier
-            les informations importantes. Voir les préférences en matière de
-            cookies.
-          </p>
         </div>
       </div>
     </main>
