@@ -23,7 +23,7 @@ function buildMessageForJoker(
     case "VOL":
       return {
         title: `Aujourd’hui tu aurais dû donner un chocolat à ${receiverName},`,
-        subtitle: `mais tu as un JOKER VOL 😈`,
+        subtitle: `mais tu as un JOKER PERE FOUETTARD 😈`,
         details: `👉 C’est toi qui manges ton chocolat aujourd’hui 😈`,
       };
     case "PARTAGE":

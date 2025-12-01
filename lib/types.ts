@@ -5,7 +5,7 @@ export const jokerStyles: Record<
   { label: string; description: string; color: string }
 > = {
   VOL: {
-    label: "JOKER VOL",
+    label: "JOKER PERE FOUETTARD",
     description: "Tu gardes ton chocolat pour toi 😈",
     color: "bg-rose-900/60 text-rose-100 border-rose-500/60",
   },

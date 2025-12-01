@@ -43,7 +43,8 @@ export default function HomePage() {
           </h1>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto">
             Clique sur un jour pour découvrir à qui tu dois donner ton chocolat,
-            ou si tu as droit à un Joker VOL, PARTAGE, GENTILLESSE ou MYSTÈRE.
+            ou si tu as droit à un Joker PERE FOUETTARD, PARTAGE, GENTILLESSE ou
+            MYSTÈRE.
           </p>
           <p className="text-[0.75rem] text-slate-400">
             Les cases se débloquent jour par jour : les jours futurs restent
@@ -189,14 +190,14 @@ export default function HomePage() {
                 <li>
                   • Certains jours, un{" "}
                   <span className="font-medium">Joker</span> s&apos;active :
-                  VOL, PARTAGE, GENTILLESSE ou MYSTÈRE.
+                  PERE FOUETTARD, PARTAGE, GENTILLESSE ou MYSTÈRE.
                 </li>
                 <li>
                   • Le site affichera un message personnalisé :
                   <br />
                   <span className="text-amber-200 italic">
                     “Aujourd&apos;hui tu aurais dû donner un chocolat à Vincent,
-                    mais tu as un JOKER VOL…😈”
+                    mais tu as un JOKER PERE FOUETTARD…😈”
                   </span>
                 </li>
                 <li>
@@ -219,7 +220,7 @@ export default function HomePage() {
                   <span className="text-base">😈</span>
                   <p>
                     <span className="font-semibold text-rose-200">
-                      Joker VOL
+                      Joker PERE FOUETTARD
                     </span>{" "}
                     : tu gardes ton chocolat pour toi.
                   </p>
