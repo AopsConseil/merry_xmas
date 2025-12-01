@@ -1,5 +1,5 @@
 // app/page.tsx
-
+export const dynamic = "force-dynamic";
 import Link from "next/link";
 import Logo from "@/components/Common/Logo";
 import { Snow } from "@/components/Common/Snow";
